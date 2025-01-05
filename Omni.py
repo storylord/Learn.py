@@ -8,18 +8,21 @@ import streamlit as st
 current_date = datetime.datetime.today().strftime('%Y-%m-%d')
 
 # Ask the user for up to 5 ticker symbols
-tickers = input("Enter up to 5 ticker symbols, separated by commas (e.g., AAPL, MSFT, BZ=F): ").strip().split(',')
+#tickers = input("Enter up to 5 ticker symbols, separated by commas (e.g., AAPL, MSFT, BZ=F): ").strip().split(',')
+tickers = "EURUSD=x,VND=x,THB=x,JPY=x"
 
 # Limit to 5 tickers
 tickers = [ticker.strip().upper() for ticker in tickers[:5]]
 
 # Ask the user for the start date
-start_date_str = input("Enter the start date (YYYY-MM-DD): ")
-end_date_str = input("Enter the end date (YYYY-MM-DD) (leave blank for today): ")
+#start_date_str = input("Enter the start date (YYYY-MM-DD): ")
+start_date_str = "2024-01-01"
+st.write("Enter the end date (YYYY-MM-DD) (leave blank for today): ")
+end_date_str = current_date
 
 # Set the end date to today if left blank
-if not end_date_str:
-    end_date_str = current_date
+#if not end_date_str:
+#    end_date_str = current_date
 
 # Validate and parse dates
 try:
