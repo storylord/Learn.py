@@ -49,13 +49,12 @@ if valid_tickers:
     for ticker, data in valid_tickers.items():
         st.subheader(f"{ticker} - Price Chart")
         st.line_chart(data['Close'])
-
         # Calculate changes
         changes = {
             'Ticker': ticker,
             '7 Days Change': data['Close'].pct_change(periods=5).iloc[-1].item() * 100 if len(data) > 7 else None,
             '30 Days Change': data['Close'].pct_change(periods=22).iloc[-1].item() * 100 if len(data) > 30 else None,
-            '1 Years Change': data['Close'].pct_change(periods=252).iloc[-1].item() * 100 if len(data) > 365 else None
+            '1 Years Change': data['Close'].pct_change(periods=252).iloc[-1].item() * 100 if len(data) > 252 else None
         }
         ticker_changes.append(changes)
 
